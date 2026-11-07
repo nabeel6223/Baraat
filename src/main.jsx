@@ -1,11 +1,35 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
+import "./keepsake.css";
 import { initialize } from "./interactions.js";
 
+function Ornament({ className = "" }) {
+  return (
+    <svg
+      className={`ornament ${className}`}
+      viewBox="0 0 200 40"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path d="M8 20h48c22 0 23-15 37-15M192 20h-48c-22 0-23-15-37-15M20 25h35c24 0 29 10 38 10M180 25h-35c-24 0-29 10-38 10" />
+      <path d="m100 8 9 12-9 12-9-12Z" />
+      <circle cx="100" cy="20" r="3" />
+      <path d="M58 20c0-14 17-14 17-4 0 5-7 8-11 4M142 20c0-14-17-14-17-4 0 5 7 8 11 4" />
+      <circle cx="8" cy="20" r="2" />
+      <circle cx="192" cy="20" r="2" />
+    </svg>
+  );
+}
 function Panel({ bg, className = "", children }) {
   return (
     <section className={`sec pg-${bg} ${className}`}>
+      <div className="card-filigree" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
       <div className="reveal">{children}</div>
     </section>
   );
@@ -31,6 +55,19 @@ function App({ c }) {
           )
           .join("")}
       </style>
+      <div className="ambient-art" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </div>
+      <aside className="keepsake-signature" aria-hidden="true">
+        <span>{c.couple.shortNames}</span>
+        <i />
+        <span>
+          {c.wedding.day.toString().padStart(2, "0")} .{" "}
+          {c.wedding.month.toString().padStart(2, "0")} . {c.wedding.year}
+        </span>
+      </aside>
       <audio ref={audio} id="bgMusic" preload="auto" aria-hidden="true">
         <source src={c.media.audio} type="audio/mpeg" />
       </audio>
@@ -52,6 +89,8 @@ function App({ c }) {
         {c.opening.mode === "seal" && (
           <div className="envelope-scene">
             <div className="envelope-border" />
+            <Ornament className="cover-ornament" />
+            <span className="cover-edition">{c.aesthetic.edition}</span>
             <p className="envelope-eyebrow">{c.opening.eyebrow}</p>
             <h2 className="envelope-message">{c.opening.message}</h2>
             <p className="envelope-names">{c.couple.shortNames}</p>
@@ -61,6 +100,11 @@ function App({ c }) {
             </div>
             <p className="envelope-hint">{c.opening.hint}</p>
             <p className="envelope-footer">{c.opening.footer}</p>
+            <div className="cover-date">
+              {c.wedding.day.toString().padStart(2, "0")} <span>/</span>{" "}
+              {c.wedding.month.toString().padStart(2, "0")} <span>/</span>{" "}
+              {c.wedding.year}
+            </div>
           </div>
         )}
         <button
@@ -116,6 +160,7 @@ function App({ c }) {
               <b>{date.getFullYear()}</b>
             </div>
           </div> */}
+          <Ornament />
           <p className="date-label">{c.hero.label}</p>
         </Panel>
         <Panel bg="silk" className="scratch-section">
@@ -220,6 +265,7 @@ function App({ c }) {
           <p className="trans">{c.closing.translation}</p>
           <div className="rule" />
           <p className="sub">{c.closing.message}</p>
+          <Ornament />
           <div className="foot-names">{c.couple.shortNames}</div>
           <small>{c.closing.year}</small>
         </Panel>

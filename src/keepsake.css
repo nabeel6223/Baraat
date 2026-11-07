@@ -1,0 +1,68 @@
+/* Warm ivory, engraved gold, and keepsake stationery. */
+body{background:#e5dac7}
+body::before{content:"";position:fixed;inset:18px;pointer-events:none;border:1px solid #c9a24d22;z-index:0}
+.ambient-art{position:fixed;inset:0;overflow:hidden;pointer-events:none}
+.ambient-art span{position:absolute;width:60vw;height:95vh;border:1px solid #d2ad5c0d;border-radius:50%;transform:rotate(-30deg);left:-35vw;top:5vh}
+.ambient-art span:nth-child(2){left:auto;right:-35vw;transform:rotate(30deg)}
+.ambient-art span:nth-child(3){width:85vw;height:110vh;left:7vw;top:-10vh;transform:none;border-color:#d2ad5c09}
+.keepsake-signature{position:fixed;left:38px;top:50%;display:flex;align-items:center;gap:22px;writing-mode:vertical-rl;transform:translateY(-50%) rotate(180deg);color:#92754e99;font:500 10px Cinzel,serif;letter-spacing:.24em;text-transform:uppercase}
+.keepsake-signature i{height:65px;width:1px;background:#c9a24d55}
+.website{filter:drop-shadow(0 16px 24px #72533926)}
+.website>.sec{border-radius:3px;box-shadow:0 0 0 1px #eddbb766,0 0 0 5px #f7efe10a,0 0 0 6px #c9a24d22}
+.card-filigree{position:absolute!important;inset:9px;z-index:3!important;pointer-events:none;border:1px solid #a8802f33;border-radius:2px}
+.card-filigree span{position:absolute;width:22px;height:22px;border:1px solid #a8802f88}
+.card-filigree span:nth-child(1){top:4px;left:4px;border-right:0;border-bottom:0}
+.card-filigree span:nth-child(2){top:4px;right:4px;border-left:0;border-bottom:0}
+.card-filigree span:nth-child(3){bottom:4px;left:4px;border-right:0;border-top:0}
+.card-filigree span:nth-child(4){bottom:4px;right:4px;border-left:0;border-top:0}
+.ornament{display:block;width:48%;height:auto;margin:calc(var(--p)*.018) auto;stroke:var(--gold);stroke-width:.8;opacity:.8}
+.hero .name{font-family:'Cinzel','Cormorant Garamond',serif;font-size:calc(var(--p)*.076);font-weight:500;line-height:1.3;letter-spacing:.015em}
+.hero .parent{font-size:calc(var(--p)*.036);line-height:1.4;max-width:18em;margin:2px auto}
+.hero em{font-family:'Great Vibes',cursive;font-size:calc(var(--p)*.085);font-weight:400;margin:calc(var(--p)*.012) 0}
+.hero .intro{font-size:calc(var(--p)*.022);letter-spacing:.2em}
+.hero .lead{font-style:italic;font-size:calc(var(--p)*.044)}
+.hero .date-label{font-size:calc(var(--p)*.021);letter-spacing:.2em;line-height:1.6}
+.foot-names{font-family:'Cinzel','Cormorant Garamond',serif;font-weight:500}
+.closing .foot-names{font-size:calc(var(--p)*.065)}
+.scratch-card{border-radius:4px;box-shadow:0 8px 24px #71562c26,0 0 0 4px #fbf4e6,0 0 0 5px #b8914266}
+.cal{border-radius:4px;background:#fffaf0aa;box-shadow:0 8px 25px #67451d0f}
+.cd{gap:0;border-top:1px solid #a8802f66;border-bottom:1px solid #a8802f66;padding:calc(var(--p)*.025) 0}
+.cd-box{border:0;border-right:1px solid #a8802f44;border-radius:0;box-shadow:none;background:transparent;padding:calc(var(--p)*.02) 0}
+.cd-box:last-child{border-right:0}
+.cd-box b{font-weight:500}
+.event .ev-date{font-style:italic}
+.seal-opener{background:radial-gradient(ellipse at 50% 20%,#fffaf0,#e9deca 80%)}
+.envelope-scene{border-radius:3px;background:radial-gradient(ellipse at 50% 10%,#fffdf5cc,transparent 60%),repeating-linear-gradient(0deg,#a1814a03 0px,#a1814a03 1px,transparent 1px,transparent 3px),linear-gradient(145deg,#fff7e7,#e8d8bd);box-shadow:0 25px 80px #72533926,0 0 0 5px #fff5e908,0 0 0 6px #c9a24d33}
+.envelope-border{inset:12px;border-color:#ad87456b}
+.envelope-border::after{content:"";position:absolute;inset:5px;border:1px solid #ad874533}
+.cover-ornament{position:absolute;top:6%;left:27%;width:46%;margin:0}
+.cover-edition{position:absolute;top:13%;width:100%;left:0;color:#9a793e;font:500 2.15cqw Cinzel,serif;letter-spacing:.2em}
+.envelope-eyebrow{top:20%;font-size:2.2cqw;letter-spacing:.2em}
+.envelope-message{top:26%;font-size:9cqw}
+.envelope-names{top:43%;font-size:4.8cqw;letter-spacing:.06em}
+.envelope-fold{height:44%;background:linear-gradient(155deg,#fcf2df,#e1cca7)}
+.wax-seal{top:58%;width:22%;box-shadow:0 8px 14px #43131b44,inset 0 0 0 4px #bd697555,inset 0 0 0 6px #55112566}
+.envelope-hint{top:78%;font-size:2.2cqw}
+.envelope-footer{bottom:11%;font-size:3.5cqw}
+.cover-date{position:absolute;bottom:6%;width:100%;font:500 2.6cqw Cinzel,serif;letter-spacing:.2em;color:#89672d}
+.cover-date span{padding:0 .5em;color:#b49965}
+.slide-context{color:var(--wine)}
+#slideTitle{font-size:16px;letter-spacing:.03em}
+.swipe-hint{color:#92754e}
+.slide-nav #slideStatus{color:var(--wine);font-family:Cinzel,serif;font-size:10px;letter-spacing:.12em}
+.slide-nav>button{background:transparent;border-color:#c9a24d66;color:var(--wine);border-radius:2px;font-size:10px;padding:10px 13px}
+.slide-nav>button:hover{background:#c9a24d18;color:var(--wine)}
+.slide-nav .pause-slides{color:#92754e;font-size:9px}
+.slide-progress{background:#c9a24d26;height:1px;margin:0 0 3px}
+.slide-progress span{background:linear-gradient(90deg,#9e783b,#f1d69b)}
+.music-toggle{background:#fff8ecee;border-color:#c9a24d66;color:var(--wine);width:36px;height:36px;font-size:20px}
+:root{--w:min(480px,calc(100vw - 24px),calc((100dvh - 170px)*2/3))}
+#root{padding-bottom:148px}
+.slide-nav{gap:5px 18px}
+@media(max-width:700px){.keepsake-signature{display:none}body::before{inset:7px}}
+@media(max-height:580px){.swipe-hint,.slide-context{display:none}:root{--w:min(400px,calc(100vw - 24px),calc((100dvh - 128px)*2/3))}#root{padding-bottom:110px}.slide-nav{gap:3px 14px}}
+/* Full-height opening stationery, with room for device safe areas. */
+.seal-opener{height:100vh;height:100dvh}
+.seal-opener .envelope-scene{width:min(100vw,72dvh);height:100%;aspect-ratio:auto;border-radius:0}
+.seal-opener .envelope-border{inset:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom))}
+@media(max-aspect-ratio:3/4){.seal-opener .envelope-scene{width:100vw}}

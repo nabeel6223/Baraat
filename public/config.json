@@ -148,5 +148,10 @@
     "readingIntervalMs": 12000,
     "swipeHint": "Swipe to turn the page",
     "progressLabel": "Time until next page"
+  },
+  "aesthetic": {
+    "edition": "THE WEDDING INVITATION",
+    "chaptersLabel": "Invitation chapters",
+    "chapterLabel": "Go to page {number}"
   }
 }
