@@ -20,7 +20,7 @@ function App({ c }) {
     );
     initialize(c);
   }, [c]);
-  const date = new Date(`${c.hero.date}T12:00:00`);
+
   return (
     <>
       <style>
@@ -34,7 +34,11 @@ function App({ c }) {
       <audio ref={audio} id="bgMusic" preload="auto" aria-hidden="true">
         <source src={c.media.audio} type="audio/mpeg" />
       </audio>
-      <section id="opener" className="opener" aria-label={c.opening.label}>
+      <section
+        id="opener"
+        className={`opener ${c.opening.mode === "seal" ? "seal-opener" : ""}`}
+        aria-label={c.opening.label}
+      >
         <video
           id="openingVideo"
           className="opening-video"
@@ -45,6 +49,20 @@ function App({ c }) {
         >
           <source src={c.media.openingVideo} type="video/mp4" />
         </video>
+        {c.opening.mode === "seal" && (
+          <div className="envelope-scene">
+            <div className="envelope-border" />
+            <p className="envelope-eyebrow">{c.opening.eyebrow}</p>
+            <h2 className="envelope-message">{c.opening.message}</h2>
+            <p className="envelope-names">{c.couple.shortNames}</p>
+            <div className="envelope-fold" aria-hidden="true" />
+            <div className="wax-seal" aria-hidden="true">
+              <span>{c.opening.initials}</span>
+            </div>
+            <p className="envelope-hint">{c.opening.hint}</p>
+            <p className="envelope-footer">{c.opening.footer}</p>
+          </div>
+        )}
         <button
           id="openBtn"
           className="open-btn"
@@ -206,11 +224,35 @@ function App({ c }) {
           <small>{c.closing.year}</small>
         </Panel>
       </main>
-      <nav id="slideNav" className="slide-nav hidden" aria-label={c.slideshow.label}>
-        <button id="prevSlide" type="button">{c.slideshow.previous}</button>
+      <nav
+        id="slideNav"
+        className="slide-nav hidden"
+        aria-label={c.slideshow.label}
+      >
+        <div className="slide-context">
+          <span id="slideTitle" />
+          <span className="swipe-hint">{c.slideshow.swipeHint}</span>
+        </div>
+        <div
+          className="slide-progress"
+          role="progressbar"
+          aria-label={c.slideshow.progressLabel}
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <span id="slideProgress" />
+        </div>
+        <button id="prevSlide" type="button">
+          {c.slideshow.previous}
+        </button>
         <span id="slideStatus" aria-live="polite" aria-atomic="true" />
-        <button id="nextSlide" type="button">{c.slideshow.next}</button>
-        <button id="pauseSlides" className="pause-slides" type="button">{c.slideshow.pause}</button>
+        <button id="nextSlide" type="button">
+          {c.slideshow.next}
+        </button>
+        <button id="pauseSlides" className="pause-slides" type="button">
+          {c.slideshow.pause}
+        </button>
       </nav>
     </>
   );

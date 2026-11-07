@@ -27,3 +27,9 @@ Reference assets and original styles/interactions were retrieved from the suppli
 ## Slideshow
 
 The invitation displays one panel at a time without page scrolling. `slideshow.intervalMs` controls automatic advancement (default 8000 ms), and `slideshow.loop` controls whether the last panel returns to the first. Previous, Next, Pause/Play, and arrow keys provide manual control. Manual navigation resets the timer. Automatic advancement pauses while the browser tab is hidden or the scratch card is being scratched. All navigation labels are in the same config file.
+
+## Keepsake presentation
+
+`opening.mode` is `seal` for the personalised wax-seal cover; set it to `video` to use the original opening video. Configure `opening.initials`, `eyebrow`, `message`, `hint`, and `footer` for the cover wording. Couple names continue to come from `couple.shortNames`.
+
+The slideshow supports horizontal swipes outside the scratch card, soft fades, and an elapsed-time progress bar. `slideshow.intervalMs` is the standard duration, `scratchIntervalMs` gives the surprise extra time, and `readingIntervalMs` controls event, story, and closing slides. Pausing preserves the current progress. Pointer interaction, keyboard focus within a card, and a hidden tab temporarily suspend progress. The final slide adds larger rose petals; reduced-motion preferences disable decorative animation.

@@ -24,7 +24,13 @@
     "label": "Tap to open the invitation",
     "skip": "Skip opening",
     "mute": "Mute music",
-    "unmute": "Play music"
+    "unmute": "Play music",
+    "mode": "seal",
+    "initials": "S & N",
+    "eyebrow": "A celebration of love",
+    "message": "With love, we invite you",
+    "hint": "Touch the seal to open",
+    "footer": "Together with our families"
   },
   "couple": {
     "first": {
@@ -131,12 +137,16 @@
     "year": "2026"
   },
   "slideshow": {
-    "intervalMs": 8000,
+    "intervalMs": 9000,
     "loop": true,
     "previous": "Previous",
     "next": "Next",
     "pause": "Pause slideshow",
     "play": "Play slideshow",
-    "label": "Invitation pages"
+    "label": "Invitation pages",
+    "scratchIntervalMs": 20000,
+    "readingIntervalMs": 12000,
+    "swipeHint": "Swipe to turn the page",
+    "progressLabel": "Time until next page"
   }
 }
