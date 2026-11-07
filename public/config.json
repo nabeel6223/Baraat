@@ -1,0 +1,142 @@
+{
+  "title": "Saniya & Nabeel — Wedding Invitation",
+  "locale": "en-GB",
+  "theme": {
+    "wine": "#6b1425",
+    "deep": "#3d0a16",
+    "gold": "#a8802f",
+    "gold2": "#c9a24d",
+    "gold3": "#e6c877",
+    "ink": "#5a3238",
+    "ivory": "#f7efe1"
+  },
+  "media": {
+    "audio": "assets/Kadmayi.mp3",
+    "volume": 1,
+    "loop": true,
+    "openingVideo": "assets/opening-video.mp4",
+    "openingPoster": "assets/opening-poster.jpg",
+    "arch": "assets/bg-arch.jpg",
+    "silk": "assets/bg-silk.jpg",
+    "paper": "assets/bg-paper.jpg"
+  },
+  "opening": {
+    "label": "Tap to open the invitation",
+    "skip": "Skip opening",
+    "mute": "Mute music",
+    "unmute": "Play music"
+  },
+  "couple": {
+    "first": {
+      "name": "Saniya Khan",
+      "relation": "D/O",
+      "parent": "(Late) Mr. Aneekur Rehman Khan & Mrs. Raziya"
+    },
+    "second": {
+      "name": "Mohd Nabeel",
+      "relation": "S/O",
+      "parent": "(Late) Mr. Anwar Hussain Ansari & Mrs. Aaysha Anwar"
+    },
+    "separator": "&",
+    "shortNames": "Saniya & Nabeel"
+  },
+  "hero": {
+    "blessing": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ",
+    "intro": "Together with their families",
+    "lead": "joyfully invite you to celebrate their beautiful beginning",
+    "label": "Baraat & Nikah Ceremony"
+  },
+  "wedding": {
+    "year": 2026,
+    "month": 12,
+    "day": 12,
+    "hour": 13,
+    "minute": 30,
+    "label": "Nikah",
+    "iso": "2026-12-12T13:30:00+05:30"
+  },
+  "scratch": {
+    "eyebrow": "A SPECIAL DAY",
+    "title": "Scratch to Reveal",
+    "subtitle": "A special day is coming up, and we can't wait to celebrate it with you!",
+    "label": "Scratch to reveal",
+    "tiny": "THE SPECIAL DAY",
+    "date": "12 • 12 • 2026",
+    "revealTitle": "Our Nikah",
+    "message": "May this new chapter begin with love, mercy and barakah.",
+    "foilTop": "TOUCH & SCRATCH",
+    "foilTitle": "Scratch to reveal",
+    "foilBottom": "OUR SPECIAL DATE",
+    "ornament": "✦"
+  },
+  "verse": {
+    "arabic": "وَخَلَقْنَاكُمْ أَزْوَاجًا",
+    "translation": "“And We created you in pairs.”",
+    "source": "Surah An-Naba • 78:8"
+  },
+  "calendar": {
+    "eyebrow": "SAVE THE DATE",
+    "title": "Heart the Date",
+    "label": "Wedding date calendar",
+    "weekdays": [
+      "S",
+      "M",
+      "T",
+      "W",
+      "T",
+      "F",
+      "S"
+    ],
+    "receptionNote": "○ {label} on {date}"
+  },
+  "countdown": {
+    "eyebrow": "THE BIG DAY IS NEAR",
+    "title": "Wedding Countdown",
+    "units": [
+      "DAYS",
+      "HOURS",
+      "MINUTES",
+      "SECONDS"
+    ],
+    "note": "until we say Qubool Hai",
+    "finished": "Alhamdulillah — the big day is here!"
+  },
+  "events": [
+    {
+      "background": "paper",
+      "eyebrow": "THE CELEBRATION",
+      "title": "Nikah Ceremony",
+      "date": "12 December 2026",
+      "time": "Baad Namaz-e-Isha",
+      "address": [
+        "Milan Marriage Home",
+        "723, Murari Nagar, GT Road, Khurja"
+      ]
+    }
+  ],
+  "story": {
+    "eyebrow": "A NEW CHAPTER",
+    "title": [
+      "Two Hearts.",
+      "One Beautiful Journey."
+    ],
+    "text": "With gratitude to Allah and surrounded by our families, we begin a new chapter together.",
+    "divider": "— ✦ —"
+  },
+  "closing": {
+    "eyebrow": "A DUA FOR THE COUPLE",
+    "arabic": "بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ",
+    "translation": "“May Allah bless you both, bless your union, and bring you together in goodness.”",
+    "message": "Your presence is our greatest gift. We would be honoured to have you celebrate with us.",
+    "year": "2026"
+  },
+  "slideshow": {
+    "intervalMs": 8000,
+    "loop": true,
+    "previous": "Previous",
+    "next": "Next",
+    "pause": "Pause slideshow",
+    "play": "Play slideshow",
+    "label": "Invitation pages"
+  }
+}

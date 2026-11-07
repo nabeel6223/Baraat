@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#ece4d6" />
+    <title>Ahmed & Zara — Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <audio id="bgMusic" preload="auto" aria-hidden="true">
+      <source src="assets/Kadmayi.mp3" type="audio/mpeg" />
+    </audio>
+
+    <section id="opener" class="opener" aria-label="Wedding invitation opening">
+      <video
+        id="openingVideo"
+        class="opening-video"
+        playsinline
+        preload="auto"
+        muted
+        poster="assets/opening-poster.jpg"
+      >
+        <source src="assets/opening-video.mp4" type="video/mp4" />
+      </video>
+      <!-- the video already says "Tap to open", so the whole screen is the (invisible) button -->
+      <button
+        id="openBtn"
+        class="open-btn"
+        aria-label="Tap to open the invitation"
+      ></button>
+    </section>
+
+    <canvas id="confetti" aria-hidden="true"></canvas>
+    <div id="sparkles" class="sparkles hidden" aria-hidden="true"></div>
+
+    <main id="website" class="website hidden" aria-hidden="true">
+      <!-- 1 · NAMES -->
+      <section class="sec pg-arch hero">
+        <div class="reveal">
+          <div class="arabic bismillah">
+            بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+          </div>
+          <p class="intro">Together with their families</p>
+          <h1>
+            <span class="person"
+              ><span class="name">Ahmed Khan</span
+              ><span class="parent"><b>S/O</b> Mr. Imran Khan</span></span
+            >
+            <em>&amp;</em>
+            <span class="person"
+              ><span class="name">Zara Sheikh</span
+              ><span class="parent"><b>D/O</b> Mr. Salim Sheikh</span></span
+            >
+          </h1>
+          <p class="lead">
+            joyfully invite you to celebrate their beautiful beginning
+          </p>
+          <div class="date-card">
+            <strong>21</strong>
+            <div class="date-copy"><span>DECEMBER</span><b>2026</b></div>
+          </div>
+          <p class="date-label">WALIMA RECEPTION</p>
+        </div>
+      </section>
+
+      <!-- 2 · SCRATCH TO REVEAL -->
+      <section class="sec pg-silk scratch-section">
+        <div class="reveal">
+          <span class="caps">A LITTLE SURPRISE</span>
+          <h2>Scratch to Reveal</h2>
+          <p class="sub">A small moment before the celebrations begin.</p>
+          <div class="scratch-card" id="scratchCard">
+            <div class="scratch-under">
+              <span class="tiny">THE SPECIAL DAY</span>
+              <div class="reveal-date">20 • 12 • 2026</div>
+              <div class="reveal-title">Our Nikah</div>
+              <p>May this new chapter begin with love, mercy and barakah.</p>
+            </div>
+            <canvas id="scratchCanvas" aria-label="Scratch to reveal"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 · VERSE -->
+      <section class="sec pg-paper quote">
+        <div class="reveal">
+          <div class="arabic verse">وَخَلَقْنَاكُمْ أَزْوَاجًا</div>
+          <div class="rule"></div>
+          <p class="trans">“And We created you in pairs.”</p>
+          <small>Surah An-Naba • 78:8</small>
+        </div>
+      </section>
+
+      <!-- 4 · HEART THE DATE -->
+      <section class="sec pg-arch calendar">
+        <div class="reveal">
+          <span class="caps">SAVE THE DATE</span>
+          <h2>Heart the Date</h2>
+          <div class="cal" id="calendar" aria-label="Wedding date calendar">
+            <div class="cal-month" id="calMonth">December 2026</div>
+            <div class="cal-week">
+              <i>S</i><i>M</i><i>T</i><i>W</i><i>T</i><i>F</i><i>S</i>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+          </div>
+          <p class="cal-note" id="calNote"></p>
+        </div>
+      </section>
+
+      <!-- 5 · COUNTDOWN -->
+      <section class="sec pg-silk countdown">
+        <div class="reveal">
+          <span class="caps">THE BIG DAY IS NEAR</span>
+          <h2>Wedding Countdown</h2>
+          <div class="cd" id="countdown" aria-live="off">
+            <div class="cd-box"><b id="cdD">0</b><span>DAYS</span></div>
+            <div class="cd-box"><b id="cdH">00</b><span>HOURS</span></div>
+            <div class="cd-box"><b id="cdM">00</b><span>MINUTES</span></div>
+            <div class="cd-box"><b id="cdS">00</b><span>SECONDS</span></div>
+          </div>
+          <p class="cd-note" id="cdNote">until we say Qubool Hai</p>
+        </div>
+      </section>
+
+      <!-- 6 · NIKAH -->
+      <section class="sec pg-paper event">
+        <div class="reveal">
+          <span class="caps">THE CELEBRATION • 01</span>
+          <h3>Nikah Ceremony</h3>
+          <div class="rule"></div>
+          <p class="ev-date">20 December 2026</p>
+          <strong>Baad Namaz-e-Zohar</strong>
+          <small>Venue Name<br />Area, City</small>
+          <a href="#" onclick="return false;">Get Directions</a>
+        </div>
+      </section>
+
+      <!-- 7 · WALIMA -->
+      <section class="sec pg-arch event">
+        <div class="reveal">
+          <span class="caps">THE CELEBRATION • 02</span>
+          <h3>Walima Reception</h3>
+          <div class="rule"></div>
+          <p class="ev-date">21 December 2026</p>
+          <strong>8:00 – 11:00 PM</strong>
+          <small
+            >Banquet Hall Name, Floor<br />Building Name, Area<br />City –
+            400000</small
+          >
+          <a href="#" onclick="return false;">Get Directions</a>
+        </div>
+      </section>
+
+      <!-- 8 · STORY -->
+      <section class="sec pg-silk story">
+        <div class="reveal">
+          <span class="caps">A NEW CHAPTER</span>
+          <h2>Two Hearts.<br />One Beautiful Journey.</h2>
+          <p class="sub">
+            With gratitude to Allah and surrounded by our families, we begin a
+            new chapter together.
+          </p>
+          <div class="divider">— ✦ —</div>
+        </div>
+      </section>
+
+      <!-- 9 · DUA + CLOSING -->
+      <section class="sec pg-paper closing">
+        <div class="reveal">
+          <span class="caps">A DUA FOR THE COUPLE</span>
+          <div class="arabic dua-arabic">
+            بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا
+            فِي خَيْرٍ
+          </div>
+          <p class="trans">
+            “May Allah bless you both, bless your union, and bring you together
+            in goodness.”
+          </p>
+          <div class="rule"></div>
+          <p class="sub">
+            Your presence is our greatest gift. We would be honoured to have you
+            celebrate with us.
+          </p>
+          <div class="foot-names">Ahmed &amp; Zara</div>
+          <small>2026</small>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

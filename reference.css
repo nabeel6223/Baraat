@@ -1,0 +1,165 @@
+:root{--wine:#6b1425;--deep:#3d0a16;--gold:#a8802f;--gold2:#c9a24d;--gold3:#e6c877;--ink:#5a3238;--ivory:#f7efe1;
+--w:min(100vw,480px);--p:calc(var(--w) - 20px);
+--script:"Great Vibes","Allura","Snell Roundhand","Apple Chancery",cursive;
+--names:"Dancing Script","Great Vibes","Snell Roundhand","Apple Chancery",cursive}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:#e5dac7;color:var(--ink);font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;overflow-x:hidden}
+.hidden{display:none!important}
+.arabic{font-family:Amiri,serif;direction:rtl}
+
+/* ---------- opening (video already says "Tap to open") ---------- */
+.opener{position:fixed;inset:0;z-index:50;background:#ece6dc;display:grid;place-items:center;transition:opacity .65s}
+.opener.done{opacity:0}
+.opening-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@media (min-aspect-ratio:3/4){.opening-video{object-fit:contain}}
+.open-btn{position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent;font-size:0}
+.open-btn.clicked{pointer-events:none}
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:40}
+
+/* ---------- column of invitation "pages" ---------- */
+.website{width:var(--w);margin:0 auto;padding:10px;display:flex;flex-direction:column;gap:12px;background:#ece3d2;box-shadow:0 0 50px rgba(90,60,30,.18)}
+.sec{position:relative;width:100%;aspect-ratio:2/3;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(110,80,40,.2),0 0 0 1px rgba(168,128,47,.28);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  background-color:#f5ecdc;background-repeat:no-repeat;background-size:100% 100%}
+.sec>*{position:relative;z-index:1}
+.pg-arch{background-image:url(assets/bg-arch.jpg);padding:25% 13% 17%}
+.pg-silk{background-image:url(assets/bg-silk.jpg);padding:19% 14% 19%}
+.pg-paper{background-image:url(assets/bg-paper.jpg);padding:17% 10% 14% 25%}
+
+/* ---------- reveal animations ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease;width:100%}
+.reveal.visible{opacity:1;transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.reveal.visible>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i,0)*.13s)}
+@keyframes ruleGrow{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
+.reveal.visible .rule{animation:ruleGrow 1.2s cubic-bezier(.2,.7,.2,1) .35s both}
+
+/* ---------- shared type ---------- */
+.caps{display:block;font:600 calc(var(--p)*.026)/1.5 Montserrat,sans-serif;letter-spacing:.3em;color:var(--gold);margin-bottom:calc(var(--p)*.025)}
+h2{font:400 calc(var(--p)*.125)/1.25 var(--script);color:var(--wine);margin-bottom:calc(var(--p)*.02);padding:.06em .12em .14em}
+h3{font:400 calc(var(--p)*.115)/1.25 var(--script);color:var(--wine);padding:.06em .1em .12em}
+.sub{font-size:calc(var(--p)*.05);line-height:1.45;color:var(--ink);margin:4px auto 0;max-width:19em}
+.rule{width:64px;height:1px;background:linear-gradient(90deg,transparent,var(--gold2),transparent);margin:calc(var(--p)*.035) auto}
+small{display:block;font:500 calc(var(--p)*.025)/1.9 Montserrat,sans-serif;letter-spacing:.14em;color:#8a6a55;margin-top:calc(var(--p)*.025);text-transform:uppercase}
+.trans{font:italic 500 calc(var(--p)*.054)/1.4 "Cormorant Garamond",serif;color:var(--wine)}
+.gold-text,.scratch-section h2,.calendar h2,.countdown h2{
+  background:linear-gradient(100deg,#8c6420 0%,#b8892f 28%,#e8c96f 47%,#b8892f 64%,#8c6420 100%) 0 0/260% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  animation:goldShine 5s ease-in-out infinite}
+@keyframes goldShine{0%{background-position:100% 0}60%,100%{background-position:-60% 0}}
+
+/* ---------- 1 · names ---------- */
+.bismillah{font-size:calc(var(--p)*.056);color:var(--wine);line-height:1.5}
+.reveal.visible .bismillah{animation:rise .9s both,glowText 4.5s ease-in-out 1.2s infinite}
+@keyframes glowText{50%{text-shadow:0 0 12px rgba(201,162,77,.85)}}
+.intro{font:600 calc(var(--p)*.025)/1.5 Montserrat,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin:calc(var(--p)*.02) 0 0}
+.hero{padding-top:27%;padding-bottom:22%}
+.hero h1{font-weight:400;margin:calc(var(--p)*.012) 0}
+.hero h1 span:not(.cap1),.hero h1 em{display:block}
+.hero .name{font:700 calc(var(--p)*.1)/1.2 var(--names);padding:.1em .2em .16em;letter-spacing:.005em;
+  background:linear-gradient(100deg,#5e1021 0%,#6b1425 36%,#c9a24d 50%,#6b1425 64%,#5e1021 100%) 0 0/260% 100%;
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  filter:drop-shadow(0 1px 1px rgba(255,250,240,.9));
+  animation:nameShine 6s ease-in-out 1.6s infinite}
+@keyframes nameShine{0%{background-position:100% 0}55%,100%{background-position:-60% 0}}
+.hero .parent{font:500 calc(var(--p)*.04)/1.25 "Cormorant Garamond",serif;color:#7a5560;margin-top:-2px}
+.hero .parent b{font:600 calc(var(--p)*.02) Montserrat,sans-serif;letter-spacing:.18em;margin-right:5px;color:var(--gold)}
+.hero em{font:700 calc(var(--p)*.07)/1 var(--names);color:var(--gold2);margin:calc(var(--p)*.004) 0;animation:amp 3.2s ease-in-out infinite}
+@keyframes amp{50%{transform:scale(1.15);text-shadow:0 0 12px rgba(201,162,77,.7)}}
+.lead{font-size:calc(var(--p)*.044);line-height:1.35;color:var(--ink);max-width:14em;margin:calc(var(--p)*.02) auto calc(var(--p)*.03)}
+.date-card{display:inline-flex;align-items:center;gap:calc(var(--p)*.04);padding:calc(var(--p)*.018) calc(var(--p)*.05);border:1px solid var(--gold2);border-radius:4px;background:rgba(255,251,244,.7)}
+.reveal.visible .date-card{animation:rise .9s both,cardGlow 3.6s ease-in-out 1.4s infinite}
+@keyframes cardGlow{50%{box-shadow:0 0 20px rgba(201,162,77,.6)}}
+.date-card strong{font:600 calc(var(--p)*.09)/1 "Cormorant Garamond",serif;color:var(--wine)}
+.date-copy{border-left:1px solid var(--gold2);padding-left:calc(var(--p)*.04);text-align:left}
+.date-copy span,.date-copy b{display:block;font:600 calc(var(--p)*.025) Montserrat,sans-serif;letter-spacing:.22em;color:var(--wine)}
+.date-copy b{margin-top:5px}
+.date-label{font:600 calc(var(--p)*.022) Montserrat,sans-serif;letter-spacing:.28em;color:var(--gold);margin-top:calc(var(--p)*.022)}
+
+/* ---------- 2 · scratch ---------- */
+.scratch-card{position:relative;width:100%;aspect-ratio:1.55;margin:calc(var(--p)*.05) auto 0;border-radius:14px;overflow:hidden;box-shadow:0 12px 30px rgba(90,60,20,.35),0 0 24px rgba(230,200,119,.55);border:1px solid var(--gold2)}
+.scratch-card::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.6) 50%,transparent 62%) 0 0/260% 100%;animation:foilSweep 3.4s ease-in-out infinite}
+@keyframes foilSweep{0%{background-position:130% 0}60%,100%{background-position:-40% 0}}
+.scratch-card.revealed::after{display:none}
+.scratch-under{position:absolute;inset:0;background:linear-gradient(160deg,#fffaf0,#f3e3cd);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:8px 14px;color:var(--wine)}
+.scratch-under .tiny{font:600 calc(var(--p)*.026) Montserrat,sans-serif;letter-spacing:.28em;color:var(--gold)}
+.reveal-date{font:700 calc(var(--p)*.085)/1.2 "Cormorant Garamond",serif;margin:4px 0 0;letter-spacing:.04em}
+.reveal-title{font:400 calc(var(--p)*.115)/1.2 var(--script);color:var(--gold);padding:0 .1em .08em}
+.scratch-under p{font-size:calc(var(--p)*.042);line-height:1.25;margin-top:4px;color:var(--ink)}
+#scratchCanvas{position:absolute;inset:0;touch-action:none;cursor:grab;transition:opacity .8s}
+.scratch-card.revealed #scratchCanvas{opacity:0;pointer-events:none}
+.scratch-card.revealed .scratch-under{animation:popIn .9s cubic-bezier(.2,.8,.2,1)}
+@keyframes popIn{from{transform:scale(1.08)}to{transform:none}}
+
+/* ---------- 3 · verse / dua ---------- */
+.verse{font-size:calc(var(--p)*.105);line-height:1.6;color:var(--wine)}
+.dua-arabic{font-size:calc(var(--p)*.07);line-height:1.9;color:var(--wine);margin:2px 0 6px}
+
+/* ---------- 4 · heart the date ---------- */
+.calendar{padding:27% 12% 21%}
+.calendar h2{font-size:calc(var(--p)*.09);margin-bottom:calc(var(--p)*.015)}
+.calendar .caps{margin-bottom:0}
+.cal{width:100%;background:rgba(255,252,246,.62);border:1px solid rgba(168,128,47,.55);border-radius:12px;padding:calc(var(--p)*.025) calc(var(--p)*.04) calc(var(--p)*.02);box-shadow:0 6px 18px rgba(110,80,40,.14)}
+.cal-month{font:700 calc(var(--p)*.055)/1.2 "Cormorant Garamond",serif;letter-spacing:.14em;text-transform:uppercase;color:var(--wine);padding-bottom:calc(var(--p)*.015)}
+.cal-week,.cal-grid{display:grid;grid-template-columns:repeat(7,1fr)}
+.cal-week i{font:600 calc(var(--p)*.024) Montserrat,sans-serif;letter-spacing:.1em;color:var(--gold);font-style:normal;padding:calc(var(--p)*.012) 0 calc(var(--p)*.018);border-bottom:1px solid rgba(201,162,77,.45);margin-bottom:calc(var(--p)*.01)}
+.day{position:relative;aspect-ratio:1.22;display:grid;place-items:center;font:600 calc(var(--p)*.05)/1 "Cormorant Garamond",serif;color:var(--ink)}
+.day b{position:relative;z-index:2;font-weight:700}
+.day.heart b{color:#fff;text-shadow:0 1px 2px rgba(60,5,18,.5);font-size:calc(var(--p)*.05);transform:translateY(-1px)}
+.day.heart svg{position:absolute;z-index:1;width:140%;height:140%;left:-20%;top:-19%;fill:var(--wine);filter:drop-shadow(0 3px 5px rgba(107,20,37,.45));transform:scale(0);overflow:visible}
+.reveal.visible .day.heart svg{animation:heartPop .95s cubic-bezier(.2,1.5,.3,1) .6s both,heartbeat 1.9s ease-in-out 1.7s infinite}
+@keyframes heartPop{from{transform:scale(0) rotate(-25deg)}to{transform:scale(1) rotate(0)}}
+@keyframes heartbeat{0%,100%{transform:scale(1)}14%{transform:scale(1.16)}28%{transform:scale(1)}42%{transform:scale(1.1)}70%{transform:scale(1)}}
+.day.ring::before{content:"";position:absolute;inset:12%;border:1px solid var(--gold2);border-radius:50%}
+.cal-note{margin-top:calc(var(--p)*.025);font:italic 500 calc(var(--p)*.046)/1.25 "Cormorant Garamond",serif;color:var(--wine)}
+.cal-note small{margin-top:2px;font-size:calc(var(--p)*.022);color:#8a6a55;font-style:normal}
+
+/* ---------- 5 · countdown ---------- */
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:calc(var(--p)*.02);margin-top:calc(var(--p)*.04)}
+.cd-box{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(var(--p)*.04) 0 calc(var(--p)*.03);border:1px solid var(--gold2);border-radius:10px;background:rgba(255,252,246,.72);box-shadow:0 6px 16px rgba(110,80,40,.16)}
+.cd-box b{font:700 calc(var(--p)*.082)/1 "Cormorant Garamond",serif;color:var(--wine);font-variant-numeric:tabular-nums;display:block}
+.cd-box b.tick{animation:tick .45s ease}
+@keyframes tick{from{transform:translateY(-6px);opacity:.25}to{transform:none;opacity:1}}
+.cd-box span{font:600 calc(var(--p)*.02) Montserrat,sans-serif;letter-spacing:.14em;color:var(--gold);margin-top:calc(var(--p)*.02)}
+.cd-note{margin-top:calc(var(--p)*.045);font:italic 500 calc(var(--p)*.052)/1.3 "Cormorant Garamond",serif;color:var(--wine)}
+
+/* ---------- 6-7 · events ---------- */
+.ev-date{font-size:calc(var(--p)*.056);color:var(--ink);margin-top:2px}
+.event strong{display:block;font:600 calc(var(--p)*.032) Montserrat,sans-serif;letter-spacing:.16em;color:var(--wine);margin-top:calc(var(--p)*.015);text-transform:uppercase}
+.event a{display:inline-block;margin-top:calc(var(--p)*.045);padding:calc(var(--p)*.028) calc(var(--p)*.06);border:1px solid var(--wine);border-radius:30px;color:var(--wine);text-decoration:none;font:600 calc(var(--p)*.025) Montserrat,sans-serif;letter-spacing:.2em;text-transform:uppercase;transition:background .3s,color .3s}
+.event a:hover,.event a:active{background:var(--wine);color:#fff}
+
+/* ---------- 8-9 · story / closing ---------- */
+.divider{color:var(--gold2);letter-spacing:.3em;margin-top:calc(var(--p)*.04);animation:twinkle 3s ease-in-out infinite}
+@keyframes twinkle{50%{opacity:.45;letter-spacing:.42em}}
+.foot-names{font:700 calc(var(--p)*.1)/1.25 var(--names);padding:.05em .15em .12em;margin-top:calc(var(--p)*.03)}
+.foot-names{background:linear-gradient(100deg,#6b1425 0%,#6b1425 36%,#c9a24d 50%,#6b1425 64%,#6b1425 100%) 0 0/260% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:nameShine 6s ease-in-out infinite}
+
+/* ---------- floating sparkles + petals ---------- */
+.sparkles{position:fixed;top:0;bottom:0;left:50%;width:var(--w);transform:translateX(-50%);overflow:hidden;pointer-events:none;z-index:30}
+.sparkles i{position:absolute;bottom:-20px;border-radius:50%;background:radial-gradient(circle,#fff6d6 0,#e8c97a 55%,transparent 72%);opacity:0;animation:floatUp linear infinite}
+@keyframes floatUp{0%{transform:translate(0,0) scale(.6);opacity:0}15%{opacity:.95}50%{transform:translate(var(--sx,18px),-55vh) scale(1)}85%{opacity:.8}100%{transform:translate(calc(var(--sx,18px)*-1),-115vh) scale(.5);opacity:0}}
+.sparkles b{position:absolute;top:-30px;width:12px;height:16px;border-radius:150% 0 150% 0;background:linear-gradient(135deg,#e8a5ae,#9b2335);opacity:0;animation:petal linear infinite}
+@keyframes petal{0%{transform:translate(0,0) rotate(0);opacity:0}10%{opacity:.75}50%{transform:translate(var(--sx,30px),55vh) rotate(200deg)}100%{transform:translate(calc(var(--sx,30px)*-1),112vh) rotate(420deg);opacity:0}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .sparkles{display:none}
+  .day.heart svg{transform:none}
+  .hero .name,.foot-names{-webkit-text-fill-color:var(--wine);color:var(--wine)}
+  .gold-text,.scratch-section h2,.calendar h2,.countdown h2{-webkit-text-fill-color:#9a722a;color:#9a722a}
+}
+
+.story{padding:19% 17%}
+.story h2{font-size:calc(var(--p)*.09)}
+.story .sub{font-size:calc(var(--p)*.046)}
+.closing{padding:19% 10% 15% 26%}
+.closing .caps{font-size:calc(var(--p)*.022);letter-spacing:.24em;margin-bottom:calc(var(--p)*.012)}
+.closing .dua-arabic{font-size:calc(var(--p)*.054);line-height:1.75}
+.closing .trans{font-size:calc(var(--p)*.044)}
+.closing .rule{margin:calc(var(--p)*.025) auto}
+.closing .sub{font-size:calc(var(--p)*.042);line-height:1.35}
+.closing .foot-names{font-size:calc(var(--p)*.082);white-space:nowrap}
+.closing small{margin-top:0}
