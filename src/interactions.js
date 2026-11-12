@@ -34,39 +34,51 @@ function startSlideshow(){
   const nav=document.getElementById('slideNav');
   const prev=document.getElementById('prevSlide'),next=document.getElementById('nextSlide');
   const pause=document.getElementById('pauseSlides'),status=document.getElementById('slideStatus');
+  const progress=document.getElementById('slideProgress'),title=document.getElementById('slideTitle');
   const options=config.slideshow;
-  let index=0,paused=false,timer;
-  function schedule(){
-    clearTimeout(timer);
-    if(!paused&&!document.hidden&&(options.loop||index<slides.length-1))
-      timer=setTimeout(()=>go(index+1),Math.max(2000,Number(options.intervalMs)||8000));
-  }
+  let index=0,paused=false,interacting=false,focused=false,elapsed=0,last=performance.now(),swipe=null;
+  const duration=()=>Math.max(2000,Number(slides[index].classList.contains('scratch-section')?options.scratchIntervalMs:slides[index].matches('.story,.closing,.event')?options.readingIntervalMs:options.intervalMs)||9000);
   function go(value){
     index=options.loop?(value+slides.length)%slides.length:Math.max(0,Math.min(slides.length-1,value));
+    elapsed=0;last=performance.now();
     slides.forEach((slide,i)=>{
       const active=i===index;
       slide.classList.toggle('active-slide',active);
       slide.setAttribute('aria-hidden',String(!active));slide.inert=!active;
       slide.querySelector('.reveal').classList.toggle('visible',active);
     });
+    sparkles.classList.toggle('finale-petals',slides[index].classList.contains('closing'));
     prev.disabled=!options.loop&&index===0;
     next.disabled=!options.loop&&index===slides.length-1;
     status.textContent=`${index+1} / ${slides.length}`;
-    schedule();
+    title.textContent=slides[index].querySelector('h2,h3')?.textContent||config.hero.label;
+    progress.style.transform='scaleX(0)';
+  }
+  function frame(now){
+    const stopped=paused||interacting||focused||document.hidden;
+    if(!stopped)elapsed+=Math.min(now-last,100);
+    last=now;
+    const fraction=Math.min(1,elapsed/duration());
+    progress.style.transform=`scaleX(${fraction})`;
+    progress.parentElement.setAttribute('aria-valuenow',String(Math.round(fraction*100)));
+    if(fraction>=1&&!stopped&&(options.loop||index<slides.length-1))go(index+1);
+    requestAnimationFrame(frame);
   }
   prev.addEventListener('click',()=>go(index-1));
   next.addEventListener('click',()=>go(index+1));
-  pause.addEventListener('click',()=>{paused=!paused;pause.textContent=paused?options.play:options.pause;pause.setAttribute('aria-pressed',String(paused));schedule();});
+  pause.addEventListener('click',()=>{paused=!paused;pause.textContent=paused?options.play:options.pause;pause.setAttribute('aria-pressed',String(paused));});
   document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(index+1)}if(e.key==='ArrowLeft'){e.preventDefault();go(index-1)}});
-  document.addEventListener('visibilitychange',schedule);
-  scratchCanvas.addEventListener('pointerdown',()=>clearTimeout(timer));
-  scratchCanvas.addEventListener('pointerup',schedule);
-  scratchCanvas.addEventListener('pointercancel',schedule);
-  // Keep interactive links and the scratch card on screen while using the keyboard.
-  website.addEventListener('focusin',()=>clearTimeout(timer));
-  website.addEventListener('focusout',schedule);
+  website.addEventListener('pointerdown',e=>{interacting=true;if(!e.target.closest('canvas,button,a'))swipe={x:e.clientX,y:e.clientY};});
+  function endGesture(e){
+    if(swipe){const dx=e.clientX-swipe.x,dy=e.clientY-swipe.y;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.4)go(index+(dx<0?1:-1));}
+    swipe=null;interacting=false;
+  }
+  window.addEventListener('pointerup',endGesture);
+  window.addEventListener('pointercancel',()=>{swipe=null;interacting=false;});
+  website.addEventListener('focusin',()=>{focused=true;});
+  website.addEventListener('focusout',()=>{focused=false;});
   nav.classList.remove('hidden');
-  go(0);
+  go(0);requestAnimationFrame(frame);
 }
 
 /* Floating gold sparkles + drifting rose petals */
@@ -103,13 +115,14 @@ openBtn.addEventListener('click',async()=>{
     bgMusic.loop=config.media.loop;bgMusic.volume=config.media.volume;
     await bgMusic.play();
   }catch(e){}
+  if(config.opening.mode==='seal'){opener.classList.add('seal-broken');setTimeout(showWebsite,700);return;}
   try{await video.play()}catch(e){showWebsite();}
   // safety net: if the video can't play or never finishes, still open the invitation
   setTimeout(showWebsite,((isFinite(video.duration)&&video.duration)||3)*1000+2500);
 });
 video.addEventListener('ended',showWebsite);
-video.addEventListener('error',showWebsite);
-const vsrc=video.querySelector('source');if(vsrc)vsrc.addEventListener('error',showWebsite);
+video.addEventListener('error',()=>{if(config.opening.mode!=='seal')showWebsite();});
+const vsrc=video.querySelector('source');if(vsrc)vsrc.addEventListener('error',()=>{if(config.opening.mode!=='seal')showWebsite();});
 
 
 /* ---------- Heart the Date: monthly calendar with a burgundy heart ---------- */
@@ -194,7 +207,7 @@ async function setupScratch(){
   };
   c.letterSpacing='3.5px';
   c.font='600 11px Montserrat, sans-serif';
-  engrave(config.scratch.foilTop,W/2+1.75,H/2-52);
+  engrave(config.scratch.foilTop,W/2+1.75,H/2-Math.min(34,H*.26));
 
   c.letterSpacing='0px';
   // fit using the real ink bounds so swashes of the script capitals are never cut off
@@ -208,9 +221,9 @@ async function setupScratch(){
 
   c.letterSpacing='3px';
   c.font='500 10px Montserrat, sans-serif';
-  engrave(config.scratch.foilBottom,W/2+1.5,H/2+48);
+  engrave(config.scratch.foilBottom,W/2+1.5,H/2+Math.min(32,H*.25));
   c.letterSpacing='0px';
-  c.font='14px serif';engrave(config.scratch.ornament,W/2,H/2+70);
+  c.font='14px serif';engrave(config.scratch.ornament,W/2,H/2+Math.min(48,H*.38));
 }
 function point(e){const r=scratchCanvas.getBoundingClientRect(),t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top}}
 let lastPoint=null;

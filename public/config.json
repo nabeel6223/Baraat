@@ -24,13 +24,19 @@
     "label": "Tap to open the invitation",
     "skip": "Skip opening",
     "mute": "Mute music",
-    "unmute": "Play music"
+    "unmute": "Play music",
+    "mode": "seal",
+    "initials": "S & N",
+    "eyebrow": "A celebration of love",
+    "message": "With love, we invite you",
+    "hint": "Touch the seal to open",
+    "footer": "Together with our families"
   },
   "couple": {
     "first": {
       "name": "Saniya Khan",
       "relation": "D/O",
-      "parent": "(Late) Mr. Aneekur Rehman Khan & Mrs. Raziya"
+      "parent": "(Late) Mr. Aneequr Rehman Khan & Mrs. Raziya"
     },
     "second": {
       "name": "Mohd Nabeel",
@@ -78,26 +84,13 @@
     "eyebrow": "SAVE THE DATE",
     "title": "Heart the Date",
     "label": "Wedding date calendar",
-    "weekdays": [
-      "S",
-      "M",
-      "T",
-      "W",
-      "T",
-      "F",
-      "S"
-    ],
+    "weekdays": ["S", "M", "T", "W", "T", "F", "S"],
     "receptionNote": "○ {label} on {date}"
   },
   "countdown": {
     "eyebrow": "THE BIG DAY IS NEAR",
     "title": "Wedding Countdown",
-    "units": [
-      "DAYS",
-      "HOURS",
-      "MINUTES",
-      "SECONDS"
-    ],
+    "units": ["DAYS", "HOURS", "MINUTES", "SECONDS"],
     "note": "until we say Qubool Hai",
     "finished": "Alhamdulillah — the big day is here!"
   },
@@ -108,18 +101,12 @@
       "title": "Nikah Ceremony",
       "date": "12 December 2026",
       "time": "Baad Namaz-e-Isha",
-      "address": [
-        "Milan Marriage Home",
-        "723, Murari Nagar, GT Road, Khurja"
-      ]
+      "address": ["Milan Marriage Home", "723, Murari Nagar, GT Road, Khurja"]
     }
   ],
   "story": {
     "eyebrow": "A NEW CHAPTER",
-    "title": [
-      "Two Hearts.",
-      "One Beautiful Journey."
-    ],
+    "title": ["Two Hearts.", "One Beautiful Journey."],
     "text": "With gratitude to Allah and surrounded by our families, we begin a new chapter together.",
     "divider": "— ✦ —"
   },
@@ -131,12 +118,21 @@
     "year": "2026"
   },
   "slideshow": {
-    "intervalMs": 8000,
+    "intervalMs": 9000,
     "loop": true,
     "previous": "Previous",
     "next": "Next",
     "pause": "Pause slideshow",
     "play": "Play slideshow",
-    "label": "Invitation pages"
+    "label": "Invitation pages",
+    "scratchIntervalMs": 20000,
+    "readingIntervalMs": 12000,
+    "swipeHint": "Swipe to turn the page",
+    "progressLabel": "Time until next page"
+  },
+  "aesthetic": {
+    "edition": "THE WEDDING INVITATION",
+    "chaptersLabel": "Invitation chapters",
+    "chapterLabel": "Go to page {number}"
   }
 }
