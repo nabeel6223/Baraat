@@ -36,7 +36,7 @@
     "first": {
       "name": "Saniya Khan",
       "relation": "D/O",
-      "parent": "(Late) Mr. Aneekur Rehman Khan & Mrs. Raziya"
+      "parent": "(Late) Mr. Aneequr Rehman Khan & Mrs. Raziya"
     },
     "second": {
       "name": "Mohd Nabeel",
@@ -84,26 +84,13 @@
     "eyebrow": "SAVE THE DATE",
     "title": "Heart the Date",
     "label": "Wedding date calendar",
-    "weekdays": [
-      "S",
-      "M",
-      "T",
-      "W",
-      "T",
-      "F",
-      "S"
-    ],
+    "weekdays": ["S", "M", "T", "W", "T", "F", "S"],
     "receptionNote": "○ {label} on {date}"
   },
   "countdown": {
     "eyebrow": "THE BIG DAY IS NEAR",
     "title": "Wedding Countdown",
-    "units": [
-      "DAYS",
-      "HOURS",
-      "MINUTES",
-      "SECONDS"
-    ],
+    "units": ["DAYS", "HOURS", "MINUTES", "SECONDS"],
     "note": "until we say Qubool Hai",
     "finished": "Alhamdulillah — the big day is here!"
   },
@@ -114,18 +101,12 @@
       "title": "Nikah Ceremony",
       "date": "12 December 2026",
       "time": "Baad Namaz-e-Isha",
-      "address": [
-        "Milan Marriage Home",
-        "723, Murari Nagar, GT Road, Khurja"
-      ]
+      "address": ["Milan Marriage Home", "723, Murari Nagar, GT Road, Khurja"]
     }
   ],
   "story": {
     "eyebrow": "A NEW CHAPTER",
-    "title": [
-      "Two Hearts.",
-      "One Beautiful Journey."
-    ],
+    "title": ["Two Hearts.", "One Beautiful Journey."],
     "text": "With gratitude to Allah and surrounded by our families, we begin a new chapter together.",
     "divider": "— ✦ —"
   },
